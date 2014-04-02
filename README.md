@@ -22,7 +22,7 @@ From your shell or command line:
 
 ### Step 2:  Run the sample in Visual Studio 2013
 
-The sample app is preconfigured to read data from a Demonstration company (GraphDir1.onMicrosoft.com) in Azure AD. Run the sample application, and from the main page, authenticate using this demo user account: demoUser@graphDir1.onMicrosoft.com   graphDem0
+The sample app is preconfigured to read data from a Demonstration company (GraphDir1.onMicrosoft.com) in Azure AD. 
 
 ### Step 3:  Running this application with your Azure Active Directory tenant
 
@@ -40,12 +40,8 @@ The sample app is preconfigured to read data from a Demonstration company (Graph
 10. While still in the Azure portal, click the Configure tab of your application.
 11. Find the Client ID value and copy it aside, you will need this later when configuring your application.
 12. In the Reply URL, add the reply URL address used to return the authorization code returned during Authorization code flow.  For example: "https://localhost:44322/".
-13. Configure Permissions - under the "Permissions to other applications" section, select application "Windows Azure Active Directory" (this is the Graph API), and under the second permission (Delegated permissions), select "Access your organization's directory" and "Enable sign-on and read users' profiles". Application Permission (the 2nd column is not needed for this demo app).
-<TODO List information on each type of delegated permssion>
+13. Configure Permissions - under the "Permissions to other applications" section, select application "Windows Azure Active Directory" (this is the Graph API), and under the first permission column (Application Permissions), select "Read Diretory data".  This sample app doesn't use delegated permssions, so the Permission under Delegated Permissions are not used.
 
-## How To Deploy This Sample to Azure
-
-Coming soon.
 
 ## About The Code
 
