@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>Microsoft.WindowsAzure.ActiveDirectory.Authentication</id>
+    <version>0.6.1</version>
+    <title>Windows Azure Authentication Library Beta</title>
+    <authors>Microsoft</authors>
+    <owners>Microsoft</owners>
+    <licenseUrl>http://go.microsoft.com/fwlink/?LinkId=257918</licenseUrl>
+    <projectUrl>http://go.microsoft.com/fwlink/?LinkId=258232</projectUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>This package contains the main assembly for the Windows Azure Authentication Library (AAL). AAL provides easy to use authentication functionality for your .NET client apps by taking advantage of Windows Azure Active Directory.</description>
+    <summary>This package contains the main assembly for the Windows Azure Authentication Library (AAL). AAL provides easy to use authentication functionality for your .NET client apps by taking advantage of Windows Azure Active Directory.</summary>
+    <copyright>Copyright 2012</copyright>
+    <language>en-US</language>
+    <tags>Windows Azure Authentication Library AAL Active Directory AAD Identity</tags>
+  </metadata>
+</package>
