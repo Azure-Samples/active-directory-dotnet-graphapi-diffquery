@@ -164,5 +164,15 @@ namespace DifferentialQueryClient
         /// Feed annotation that represents a URI to be called later after the polling interval has passed.
         /// </summary>
         public const string NextLinkFeedAnnotation = "aad.nextLink";
+
+        /// <summary>
+        /// Graph endpoint.
+        /// </summary>
+        public const string ResourceUrl = "https://graph.windows.net";
+
+        /// <summary>
+        /// Format for getting STS endpoint.
+        /// </summary>
+        public const string AuthEndpoint = "https://login.windows.net/{0}";
     }
 }

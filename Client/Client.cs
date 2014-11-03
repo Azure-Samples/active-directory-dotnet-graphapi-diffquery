@@ -34,6 +34,7 @@ namespace DifferentialQueryClient
     using System.Text;
     using System.Web;
     using System.Web.Script.Serialization;
+    using Microsoft.IdentityModel.Clients.ActiveDirectory;
 
     /// <summary>
     /// Sample implementation of obtaining changes from graph using Differential Query.
@@ -205,51 +206,18 @@ namespace DifferentialQueryClient
         }
 
         #region helpers
-
         /// <summary>
-        /// Gets the Oauth2 Authorization header from Windows Azure AD Access Control.
+        /// Get Token for Application.
         /// </summary>
-        /// <returns>OAuth2 bearer token</returns>
-        protected virtual string GetAuthorizationHeader()
+        /// <returns>Token for application.</returns>
+        protected string GetTokenForApplication()
         {
-            if (this.AccessToken != null)
-            {
-                return this.AccessToken;
-            }
-
-            string postData = String.Format(
-                CultureInfo.InvariantCulture,
-                "grant_type=client_credentials&resource={0}&client_id={1}&client_secret={2}",
-                HttpUtility.UrlEncode(ProtectedResourcePrincipalId),
-                HttpUtility.UrlEncode(this.AppPrincipalId),
-                HttpUtility.UrlEncode(this.AppPrincipalPassword));
-            System.Text.ASCIIEncoding encoding = new System.Text.ASCIIEncoding();
-            byte[] data = encoding.GetBytes(postData);
-
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(
-                String.Format(StsUrl, this.TenantDomainName));
-            request.Method = "POST";
-            request.ContentType = "application/x-www-form-urlencoded";
-            request.ContentLength = data.Length;
-            using (Stream stream = request.GetRequestStream())
-            {
-                stream.Write(data, 0, data.Length);
-            }
-
-            using (WebResponse response = request.GetResponse())
-            {
-                using (Stream stream = response.GetResponseStream())
-                {
-                    DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(AccessTokenFormat));
-                    AccessTokenFormat token = (AccessTokenFormat)ser.ReadObject(stream);
-                    this.AccessToken = string.Format(
-                        CultureInfo.InvariantCulture,
-                        "{0} {1}",
-                        token.token_type,
-                        token.access_token);
-                    return this.AccessToken;
-                }
-            }
+            string authEndpoint = string.Format(Constants.AuthEndpoint, this.TenantDomainName);
+            AuthenticationContext authenticationContext = new AuthenticationContext(authEndpoint, false);
+            // Config for OAuth client credentials 
+            ClientCredential clientCred = new ClientCredential(this.AppPrincipalId, this.AppPrincipalPassword);
+            AuthenticationResult authenticationResult = authenticationContext.AcquireToken(Constants.ResourceUrl, clientCred);
+            return authenticationResult.AccessToken;
         }
 
         /// <summary>
@@ -285,7 +253,7 @@ namespace DifferentialQueryClient
         /// <param name="webClient">Web client to add the required headers to.</param>
         private void AddHeaders(WebClient webClient)
         {
-            webClient.Headers.Add(Constants.HeaderNameAuthorization, this.GetAuthorizationHeader());
+            webClient.Headers.Add(Constants.HeaderNameAuthorization, this.GetTokenForApplication());
             webClient.Headers.Add(Constants.HeaderNameClientRequestId, Guid.NewGuid().ToString());
             webClient.Headers.Add(HttpRequestHeader.Accept, "application/json;odata=minimalmetadata");
         }
