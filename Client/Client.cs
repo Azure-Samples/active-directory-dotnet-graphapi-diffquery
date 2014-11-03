@@ -88,14 +88,9 @@ namespace DifferentialQueryClient
         protected string ApiVersion { get; set; }
 
         /// <summary>
-        /// Gets or sets the Windows Azure AD Access Control Service endpoint.
-        /// </summary>
-        private static string StsUrl { get; set; }
-
-        /// <summary>
         /// Gets or sets the well known service principal ID for Windows Azure AD Access Control.
         /// </summary>
-        private static string ProtectedResourcePrincipalId { get; set; }
+        private string ProtectedResourcePrincipalId { get; set; }
 
         /// <summary>
         /// Gets or sets the Windows Azure AD tenant domain name.
@@ -216,7 +211,7 @@ namespace DifferentialQueryClient
             AuthenticationContext authenticationContext = new AuthenticationContext(authEndpoint, false);
             // Config for OAuth client credentials 
             ClientCredential clientCred = new ClientCredential(this.AppPrincipalId, this.AppPrincipalPassword);
-            AuthenticationResult authenticationResult = authenticationContext.AcquireToken(Constants.ResourceUrl, clientCred);
+            AuthenticationResult authenticationResult = authenticationContext.AcquireToken(this.ProtectedResourcePrincipalId, clientCred);
             return authenticationResult.AccessToken;
         }
 
@@ -243,8 +238,7 @@ namespace DifferentialQueryClient
         {
             this.AzureADServiceHost = Configuration.GetElementValue("AzureADServiceHost");
             this.ApiVersion = Configuration.GetElementValue("ApiVersion");
-            StsUrl = Configuration.GetElementValue("StsUrl");
-            ProtectedResourcePrincipalId = Configuration.GetElementValue("ProtectedResourcePrincipalId");
+            this.ProtectedResourcePrincipalId = Configuration.GetElementValue("ProtectedResourcePrincipalId");
         }
 
         /// <summary>

@@ -152,9 +152,9 @@ namespace DifferentialQueryConsoleApplication
             string directoryChangeType = change["odata.type"].ToString();
             switch (directoryChangeType)
             {
-                case "Microsoft.WindowsAzure.ActiveDirectory.User":
-                case "Microsoft.WindowsAzure.ActiveDirectory.Contact":
-                case "Microsoft.WindowsAzure.ActiveDirectory.Group":
+                case "Microsoft.DirectoryServices.User":
+                case "Microsoft.DirectoryServices.Contact":
+                case "Microsoft.DirectoryServices.Group":
                     outputFile.WriteLine(javaScriptSerializer.Serialize(change));
                     Logger.DefaultLogger.Log(
                         "Detected a change about an AAD {0} with objectId {1}",
@@ -163,7 +163,7 @@ namespace DifferentialQueryConsoleApplication
                     this.HandleObject(change);
                     break;
 
-                case "Microsoft.WindowsAzure.ActiveDirectory.DirectoryLinkChange":
+                case "Microsoft.DirectoryServices.DirectoryLinkChange":
                     outputFile.WriteLine(javaScriptSerializer.Serialize(change));
                     Logger.DefaultLogger.Log(
                         "Detected a change about an AAD link with sourceObjectId {0} and targetObjectId {1}",

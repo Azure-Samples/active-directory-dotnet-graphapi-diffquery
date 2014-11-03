@@ -166,11 +166,6 @@ namespace DifferentialQueryClient
         public const string NextLinkFeedAnnotation = "aad.nextLink";
 
         /// <summary>
-        /// Graph endpoint.
-        /// </summary>
-        public const string ResourceUrl = "https://graph.windows.net";
-
-        /// <summary>
         /// Format for getting STS endpoint.
         /// </summary>
         public const string AuthEndpoint = "https://login.windows.net/{0}";
