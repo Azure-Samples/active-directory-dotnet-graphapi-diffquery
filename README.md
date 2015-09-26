@@ -45,7 +45,7 @@ The sample app is preconfigured to read data from a Demonstration company (Graph
 10. While still in the Azure portal, click the Configure tab of your application.
 11. Find the Client ID value and copy it aside, you will need this later when configuring your application.
 12. In the Reply URL, add the reply URL address used to return the authorization code returned during Authorization code flow.  For example: "https://localhost:44322/".
-13. Configure Permissions - under the "Permissions to other applications" section, select application "Windows Azure Active Directory" (this is the Graph API), and under the first permission column (Application Permissions), select "Read Diretory data".  This sample app doesn't use delegated permssions, so the Permission under Delegated Permissions are not used.
+13. Configure Permissions - under the "Permissions to other applications" section, select application "Azure Active Directory" (this is the Graph API), and under the first permission column (Application Permissions), select "Read Diretory data".  This sample app doesn't use delegated permssions, so the Permission under Delegated Permissions are not used.
 
 
 ## About The Code
