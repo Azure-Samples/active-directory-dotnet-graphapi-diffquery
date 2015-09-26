@@ -23,7 +23,7 @@ Every Azure subscription has an associated Azure Active Directory tenant.  If yo
 
 From your shell or command line:
 
-`git clone git@github.com:AzureADSamples/ConsoleApp-GraphAPI-DiffQuery-DotNet.git`
+`git clone https://github.com/Azure-Samples/active-directory-dotnet-graphapi-diffquery.git`
 
 ### Step 2:  Run the sample in Visual Studio 2013
 
