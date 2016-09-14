@@ -35,13 +35,13 @@ The sample app is preconfigured to read data from a Demonstration company (Graph
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. On the top bar, click on your account and under the **Directory** list, choose the Active Directory tenant where you wish to register your application.
-2. Click on **More Services** in the left hand nav, and choose **Azure Active Directory**.
-3. Click on **App registrations** and choose **Add**.
-4. Enter a friendly name for the application, for example 'WebApp for Azure AD' and select 'Web Application and/or Web API' as the Application Type. For the sign-on URL, enter the base URL for the sample, which is by default `https://localhost:44322`. Click on **Create** to create the application.
-5. While still in the Azure portal, choose your application, click on **Settings** and choose **Properties**.
-6. Find the Application ID value and copy it to the clipboard.
-7. From the settings page, click on 'Reply URLs' and add the reply URL address used to return the authorization code returned during Authorization code flow.  For example: "https://localhost:44322/".
-7. Configure Permissions for your application - in the Settings menu, choose the 'Required permissions' section, click on **Add**, then **Select an API**, and select 'Microsoft Graph' (this is the Graph API). Then, click on  **Select Permissions** and select 'Read Directory Data'.
+3. Click on **More Services** in the left hand nav, and choose **Azure Active Directory**.
+4. Click on **App registrations** and choose **Add**.
+5. Enter a friendly name for the application, for example 'WebApp for Azure AD' and select 'Web Application and/or Web API' as the Application Type. For the sign-on URL, enter the base URL for the sample, which is by default `https://localhost:44322`. Click on **Create** to create the application.
+6. While still in the Azure portal, choose your application, click on **Settings** and choose **Properties**.
+7. Find the Application ID value and copy it to the clipboard.
+8. From the settings page, click on 'Reply URLs' and add the reply URL address used to return the authorization code returned during Authorization code flow.  For example: "https://localhost:44322/".
+9. Configure Permissions for your application - in the Settings menu, choose the 'Required permissions' section, click on **Add**, then **Select an API**, and select 'Microsoft Graph' (this is the Graph API). Then, click on  **Select Permissions** and select 'Read Directory Data'.
 
 ## About The Code
 
