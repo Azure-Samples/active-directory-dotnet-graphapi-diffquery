@@ -168,6 +168,6 @@ namespace DifferentialQueryClient
         /// <summary>
         /// Format for getting STS endpoint.
         /// </summary>
-        public const string AuthEndpoint = "https://login.windows.net/{0}";
+        public const string AuthEndpoint = "https://login.microsoftonline.com/{0}";
     }
 }
